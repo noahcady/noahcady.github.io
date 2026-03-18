@@ -77,6 +77,48 @@ if (contactForm) {
   });
 }
 
+// Video modal
+const videoModal = document.getElementById('videoModal');
+const videoFrame = document.getElementById('videoFrame');
+const modalTitle = document.getElementById('modalTitle');
+const modalTag = document.getElementById('modalTag');
+const modalDesc = document.getElementById('modalDesc');
+
+function openVideoModal(card) {
+  const videoId = card.dataset.video;
+  const title = card.dataset.title;
+  const tag = card.dataset.tag;
+  const desc = card.dataset.desc;
+
+  videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+  modalTitle.textContent = title;
+  modalTag.textContent = tag;
+  modalDesc.textContent = desc;
+  videoModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  videoModal.classList.remove('active');
+  document.body.style.overflow = '';
+  // Stop the video by clearing the src
+  setTimeout(() => { videoFrame.src = ''; }, 350);
+}
+
+// Open modal on project card click
+document.querySelectorAll('.project-card[data-video]').forEach(card => {
+  card.addEventListener('click', () => openVideoModal(card));
+});
+
+// Close modal on overlay click, close button, or Escape key
+videoModal.querySelector('.video-modal-overlay').addEventListener('click', closeVideoModal);
+videoModal.querySelector('.video-modal-close').addEventListener('click', closeVideoModal);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+    closeVideoModal();
+  }
+});
+
 // Auto-dismiss flash messages
 document.querySelectorAll('.flash-message').forEach(msg => {
   setTimeout(() => {

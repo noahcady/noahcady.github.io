@@ -114,7 +114,7 @@
       </div>
       <div class="projects-grid">
 
-        <a href="https://youtu.be/I33K1grs5hU" class="project-card reveal" target="_blank" rel="noopener">
+        <div class="project-card reveal" data-video="I33K1grs5hU" data-title="Rick David Testimonial — LAH" data-tag="Testimonial" data-desc="A client testimonial video capturing authentic storytelling and personal impact.">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background-image:url('https://i.ytimg.com/vi/I33K1grs5hU/hqdefault.jpg');background-size:cover;background-position:center;"></div>
             <div class="project-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
@@ -124,9 +124,9 @@
             <h3 class="project-title">Rick David Testimonial &mdash; LAH</h3>
             <p class="project-desc">A client testimonial video capturing authentic storytelling and personal impact.</p>
           </div>
-        </a>
+        </div>
 
-        <a href="https://youtu.be/RDKCWPWYoNE" class="project-card reveal" target="_blank" rel="noopener">
+        <div class="project-card reveal" data-video="RDKCWPWYoNE" data-title="Project Purpose 2024" data-tag="Nonprofit" data-desc="A purpose-driven film highlighting community impact and meaningful change.">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background-image:url('https://i.ytimg.com/vi/RDKCWPWYoNE/hqdefault.jpg');background-size:cover;background-position:center;"></div>
             <div class="project-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
@@ -136,9 +136,9 @@
             <h3 class="project-title">Project Purpose 2024</h3>
             <p class="project-desc">A purpose-driven film highlighting community impact and meaningful change.</p>
           </div>
-        </a>
+        </div>
 
-        <a href="https://youtu.be/-KJG3miT-bw" class="project-card reveal" target="_blank" rel="noopener">
+        <div class="project-card reveal" data-video="-KJG3miT-bw" data-title="Momo Tattoo — Jared" data-tag="Brand Film" data-desc="A cinematic portrait of an artist and their craft at Momo Tattoo studio.">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background-image:url('https://i.ytimg.com/vi/-KJG3miT-bw/hqdefault.jpg');background-size:cover;background-position:center;"></div>
             <div class="project-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
@@ -148,9 +148,9 @@
             <h3 class="project-title">Momo Tattoo &mdash; Jared</h3>
             <p class="project-desc">A cinematic portrait of an artist and their craft at Momo Tattoo studio.</p>
           </div>
-        </a>
+        </div>
 
-        <a href="https://youtu.be/MfLILvHoyPo" class="project-card reveal" target="_blank" rel="noopener">
+        <div class="project-card reveal" data-video="MfLILvHoyPo" data-title="NOC — Brain Range" data-tag="Commercial" data-desc="A dynamic commercial showcasing NOC's Brain Range product line.">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background-image:url('https://i.ytimg.com/vi/MfLILvHoyPo/hqdefault.jpg');background-size:cover;background-position:center;"></div>
             <div class="project-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
@@ -160,9 +160,9 @@
             <h3 class="project-title">NOC &mdash; Brain Range</h3>
             <p class="project-desc">A dynamic commercial showcasing NOC's Brain Range product line.</p>
           </div>
-        </a>
+        </div>
 
-        <a href="https://youtu.be/oecyFl5us_Y" class="project-card reveal" target="_blank" rel="noopener">
+        <div class="project-card reveal" data-video="oecyFl5us_Y" data-title="Dalton Chamber Classic 2024" data-tag="Event" data-desc="Highlight reel capturing the energy and excitement of the 2024 Chamber Classic event.">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background-image:url('https://i.ytimg.com/vi/oecyFl5us_Y/hqdefault.jpg');background-size:cover;background-position:center;"></div>
             <div class="project-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
@@ -172,9 +172,9 @@
             <h3 class="project-title">Dalton Chamber Classic 2024</h3>
             <p class="project-desc">Highlight reel capturing the energy and excitement of the 2024 Chamber Classic event.</p>
           </div>
-        </a>
+        </div>
 
-        <a href="https://youtu.be/fnoYQ4di_8w" class="project-card reveal" target="_blank" rel="noopener">
+        <div class="project-card reveal" data-video="fnoYQ4di_8w" data-title="Juan's Weiners" data-tag="Brand Film" data-desc="A fun and engaging brand film bringing personality and flavor to a local favorite.">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background-image:url('https://i.ytimg.com/vi/fnoYQ4di_8w/hqdefault.jpg');background-size:cover;background-position:center;"></div>
             <div class="project-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></div>
@@ -184,7 +184,7 @@
             <h3 class="project-title">Juan's Weiners</h3>
             <p class="project-desc">A fun and engaging brand film bringing personality and flavor to a local favorite.</p>
           </div>
-        </a>
+        </div>
 
       </div>
     </div>
@@ -273,6 +273,22 @@
       </div>
     </div>
   </section>
+
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-overlay"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close" aria-label="Close">&times;</button>
+      <div class="video-modal-player">
+        <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="video-modal-info">
+        <span class="project-tag" id="modalTag"></span>
+        <h3 class="video-modal-title" id="modalTitle"></h3>
+        <p class="video-modal-desc" id="modalDesc"></p>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
