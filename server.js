@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve uploaded photos from Hostinger's "Personal Brand Site Photos" folder
+app.use('/photos', express.static(path.join(__dirname, '..', 'Personal Brand Site Photos')));
+
 // Routes
 app.use('/', routes);
 
