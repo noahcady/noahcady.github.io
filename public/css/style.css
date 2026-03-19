@@ -92,6 +92,8 @@ nav {
   display: flex;
   gap: 2rem;
   list-style: none;
+  margin-left: auto;
+  margin-right: 1.5rem;
 }
 
 .nav-links a {
@@ -135,8 +137,7 @@ nav {
   justify-content: center;
   cursor: pointer;
   transition: border-color 0.3s, background 0.3s;
-  margin-left: auto;
-  margin-right: 1rem;
+  margin-right: 0;
   flex-shrink: 0;
 }
 
@@ -191,6 +192,7 @@ nav {
 /* --- HERO --- */
 .hero {
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -204,17 +206,17 @@ nav {
 /* Rotating background gallery */
 .hero-bg {
   position: absolute;
-  inset: -20px;
+  inset: -10px;
   z-index: 0;
-  filter: blur(10px) brightness(0.5) saturate(1.3);
-  transform: scale(1.08);
+  filter: blur(6px) brightness(0.5) saturate(1.3);
+  transform: scale(1.04);
 }
 
 .hero-bg-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   opacity: 0;
   transition: opacity 1.6s ease-in-out;
 }
