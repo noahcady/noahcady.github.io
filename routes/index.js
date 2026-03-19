@@ -3,7 +3,12 @@ const router = express.Router();
 
 // Home page
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { page: 'home' });
+});
+
+// Color Grading portfolio page
+router.get('/color-grading', (req, res) => {
+  res.render('color-grading', { page: 'color-grading' });
 });
 
 // Contact form submission

@@ -8,6 +8,30 @@ links.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => links.classList.remove('open'));
 });
 
+// --- THEME TOGGLE ---
+const themeToggle = document.getElementById('themeToggle');
+
+function getPreferredTheme() {
+  const stored = localStorage.getItem('theme');
+  if (stored) return stored;
+  // Default to light unless user explicitly has dark system preference
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+}
+
+// Apply on load (backup for inline script)
+applyTheme(getPreferredTheme());
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  const next = current === 'light' ? 'dark' : 'light';
+  applyTheme(next);
+  localStorage.setItem('theme', next);
+});
+
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -21,16 +45,18 @@ const observer = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => observer.observe(el));
 
-// Hero background slideshow
+// Hero background slideshow (only on pages with hero)
 const slides = document.querySelectorAll('.hero-bg-slide');
-let currentSlide = 0;
-setInterval(() => {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-}, 5000);
+if (slides.length > 0) {
+  let currentSlide = 0;
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 5000);
+}
 
-// Contact form handler
+// Contact form handler (only on pages with contact form)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
@@ -77,47 +103,49 @@ if (contactForm) {
   });
 }
 
-// Video modal
+// Video modal (only on pages with video modal)
 const videoModal = document.getElementById('videoModal');
-const videoFrame = document.getElementById('videoFrame');
-const modalTitle = document.getElementById('modalTitle');
-const modalTag = document.getElementById('modalTag');
-const modalDesc = document.getElementById('modalDesc');
+if (videoModal) {
+  const videoFrame = document.getElementById('videoFrame');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalTag = document.getElementById('modalTag');
+  const modalDesc = document.getElementById('modalDesc');
 
-function openVideoModal(card) {
-  const videoId = card.dataset.video;
-  const title = card.dataset.title;
-  const tag = card.dataset.tag;
-  const desc = card.dataset.desc;
+  function openVideoModal(card) {
+    const videoId = card.dataset.video;
+    const title = card.dataset.title;
+    const tag = card.dataset.tag;
+    const desc = card.dataset.desc;
 
-  videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-  modalTitle.textContent = title;
-  modalTag.textContent = tag;
-  modalDesc.textContent = desc;
-  videoModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeVideoModal() {
-  videoModal.classList.remove('active');
-  document.body.style.overflow = '';
-  // Stop the video by clearing the src
-  setTimeout(() => { videoFrame.src = ''; }, 350);
-}
-
-// Open modal on project card click
-document.querySelectorAll('.project-card[data-video]').forEach(card => {
-  card.addEventListener('click', () => openVideoModal(card));
-});
-
-// Close modal on overlay click, close button, or Escape key
-videoModal.querySelector('.video-modal-overlay').addEventListener('click', closeVideoModal);
-videoModal.querySelector('.video-modal-close').addEventListener('click', closeVideoModal);
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-    closeVideoModal();
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    modalTitle.textContent = title;
+    modalTag.textContent = tag;
+    modalDesc.textContent = desc;
+    videoModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
-});
+
+  function closeVideoModal() {
+    videoModal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Stop the video by clearing the src
+    setTimeout(() => { videoFrame.src = ''; }, 350);
+  }
+
+  // Open modal on project card click
+  document.querySelectorAll('.project-card[data-video]').forEach(card => {
+    card.addEventListener('click', () => openVideoModal(card));
+  });
+
+  // Close modal on overlay click, close button, or Escape key
+  videoModal.querySelector('.video-modal-overlay').addEventListener('click', closeVideoModal);
+  videoModal.querySelector('.video-modal-close').addEventListener('click', closeVideoModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+      closeVideoModal();
+    }
+  });
+}
 
 // Auto-dismiss flash messages
 document.querySelectorAll('.flash-message').forEach(msg => {
@@ -128,3 +156,35 @@ document.querySelectorAll('.flash-message').forEach(msg => {
     setTimeout(() => msg.remove(), 400);
   }, 4000);
 });
+
+// --- IMAGE LIGHTBOX (Color Grading page) ---
+const lightbox = document.getElementById('imageLightbox');
+if (lightbox) {
+  const lightboxImg = lightbox.querySelector('.lightbox-img');
+  const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = img.alt || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxImg.src = ''; }, 350);
+  }
+
+  lightbox.querySelector('.lightbox-overlay').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+}
