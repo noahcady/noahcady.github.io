@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noah Cady | Filmmaker</title>
+  <title>Noah Cady | Filmmaker & Video Production in Dalton, GA</title>
+  <meta name="description" content="Noah Cady is a professional filmmaker and video producer based in Dalton, GA. Specializing in commercial video production, brand films, color grading, and social media content for businesses in Northwest Georgia.">
+  <meta name="keywords" content="filmmaker Dalton GA, video production Dalton Georgia, videographer Northwest Georgia, commercial video production, brand films, color grading, social media content creator, corporate video Dalton, video editor Georgia">
+  <meta name="author" content="Noah Cady">
+  <link rel="canonical" href="https://noahcady.com/">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noahcady.com/">
+  <meta property="og:title" content="Noah Cady | Filmmaker & Video Production in Dalton, GA">
+  <meta property="og:description" content="Professional filmmaker and video producer based in Dalton, GA. Specializing in commercial video, brand films, color grading, and social media content.">
+  <meta property="og:image" content="https://noahcady.com/photos/Noah%20Headshot%20for%20Site">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Noah Cady">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Noah Cady | Filmmaker & Video Production in Dalton, GA">
+  <meta name="twitter:description" content="Professional filmmaker and video producer based in Dalton, GA. Specializing in commercial video, brand films, color grading, and social media content.">
+  <meta name="twitter:image" content="https://noahcady.com/photos/Noah%20Headshot%20for%20Site">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
@@ -25,8 +47,8 @@
   <%- include('partials/nav') %>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg" id="heroBg">
+  <section class="hero" aria-label="Noah Cady — Filmmaker and video producer in Dalton, Georgia">
+    <div class="hero-bg" id="heroBg" role="img" aria-label="Cinematic stills from Noah Cady's video production portfolio">
       <div class="hero-bg-slide active" style="background-image:url('/photos/E10D2BB1-F1E7-40D3-BE55-7C3B5082D529_1_105_c.jpeg')"></div>
       <div class="hero-bg-slide" style="background-image:url('/photos/E5FC701C-8EFC-4D99-920D-9CABE1091439_1_105_c.jpeg')"></div>
       <div class="hero-bg-slide" style="background-image:url('/photos/DD92057F-99D5-4036-9096-C9097E36CA4E_1_105_c.jpeg')"></div>
@@ -89,11 +111,11 @@
               <div class="stat-label">Projects</div>
             </div>
             <div>
-              <div class="stat-num">8+</div>
+              <div class="stat-num">6+</div>
               <div class="stat-label">Years Exp.</div>
             </div>
             <div>
-              <div class="stat-num">30+</div>
+              <div class="stat-num">20+</div>
               <div class="stat-label">Clients</div>
             </div>
           </div>
@@ -291,7 +313,62 @@
 
   <%- include('partials/footer') %>
 
-  <script src="/js/main.js?v=4"></script>
+  <script src="/js/main.js?v=5"></script>
+
+  <!-- Structured Data: LocalBusiness + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Noah Cady — Filmmaker & Video Production",
+    "alternateName": "Noah Cady",
+    "url": "https://noahcady.com",
+    "logo": "https://noahcady.com/photos/Noah%20Headshot%20for%20Site",
+    "image": "https://noahcady.com/photos/Noah%20Headshot%20for%20Site",
+    "description": "Professional filmmaker and video producer based in Dalton, GA. Specializing in commercial video production, brand films, color grading, and social media content creation for businesses in Northwest Georgia.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dalton",
+      "addressRegion": "GA",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 34.7698,
+      "longitude": -84.9702
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Dalton",
+        "containedInPlace": { "@type": "State", "name": "Georgia" }
+      },
+      {
+        "@type": "State",
+        "name": "Georgia"
+      }
+    ],
+    "serviceType": ["Video Production", "Filmmaking", "Color Grading", "Commercial Video", "Brand Films", "Social Media Content Creation", "Cinematography", "Post-Production"],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.youtube.com/@stillshotmediallc",
+      "https://www.instagram.com/noah.cady"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Noah Cady",
+      "jobTitle": "Filmmaker & Video Producer",
+      "url": "https://noahcady.com",
+      "image": "https://noahcady.com/photos/Noah%20Headshot%20for%20Site",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dalton",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      }
+    }
+  }
+  </script>
 
 </body>
 </html>
