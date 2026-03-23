@@ -125,6 +125,55 @@ nav {
   width: 100%;
 }
 
+/* --- NAV DROPDOWN --- */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 1001;
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+[data-theme="dark"] .nav-dropdown-menu {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.nav-dropdown-menu li {
+  padding: 0;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background: var(--bg-card-hover);
+}
+
+.nav-dropdown-menu a::after {
+  display: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}
+
 /* --- THEME TOGGLE --- */
 .theme-toggle {
   background: none;
@@ -890,6 +939,36 @@ footer {
     margin-right: 0.75rem;
   }
 
+  /* Dropdown becomes inline on mobile */
+  .nav-dropdown-menu {
+    display: none;
+    position: static;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0.25rem 0 0 1rem;
+    min-width: 0;
+    margin-top: 0.25rem;
+  }
+
+  [data-theme="dark"] .nav-dropdown-menu {
+    box-shadow: none;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 0.4rem 0;
+    font-size: 0.78rem;
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: transparent;
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+  }
+
   /* Stack layout grids */
   .about-grid,
   .contact-grid {
@@ -1163,6 +1242,67 @@ footer {
   max-width: 420px;
   margin: 0 auto;
   line-height: 1.7;
+}
+
+/* --- SERVICE DETAIL PAGES --- */
+.service-detail {
+  padding: 4rem 0 6rem;
+}
+
+.service-detail-content {
+  max-width: 760px;
+}
+
+.service-detail-content h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.service-detail-content h3 {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.service-detail-content p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.service-list li {
+  color: var(--text-muted);
+  line-height: 1.8;
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.service-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.service-detail-content .btn {
+  margin-top: 2rem;
 }
 
 /* --- IMAGE LIGHTBOX --- */

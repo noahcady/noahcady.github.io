@@ -3,9 +3,20 @@ const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
 toggle.addEventListener('click', () => links.classList.toggle('open'));
 
-// Close mobile nav on link click
+// Close mobile nav on link click (but not the dropdown parent)
 links.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => links.classList.remove('open'));
+  a.addEventListener('click', (e) => {
+    // If this is the dropdown parent on mobile, toggle sub-menu instead of closing nav
+    const dropdown = a.closest('.nav-dropdown');
+    if (dropdown && a === dropdown.querySelector(':scope > a') && window.innerWidth <= 900) {
+      e.preventDefault();
+      dropdown.classList.toggle('open');
+      return;
+    }
+    links.classList.remove('open');
+    // Close any open dropdowns
+    document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+  });
 });
 
 // --- THEME TOGGLE ---

@@ -11,6 +11,19 @@ router.get('/color-grading', (req, res) => {
   res.render('color-grading', { page: 'color-grading' });
 });
 
+// Service pages
+router.get('/videography', (req, res) => {
+  res.render('videography', { page: 'videography' });
+});
+
+router.get('/photography', (req, res) => {
+  res.render('photography', { page: 'photography' });
+});
+
+router.get('/social-media-content', (req, res) => {
+  res.render('social-media-content', { page: 'social-media-content' });
+});
+
 // Contact form submission
 router.post('/contact', (req, res) => {
   const { name, email, 'project-type': projectType, message } = req.body;

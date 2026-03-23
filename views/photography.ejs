@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photographer in Dalton, GA | Photography Services | Noah Cady</title>
+  <meta name="description" content="Professional photographer in Dalton, GA serving the Chattanooga area. Brand photography, headshots, product photography, and event photography. Book a session with Noah Cady today.">
+  <meta name="keywords" content="photographer Dalton GA, photography Dalton Georgia, photographer near me, headshot photographer Dalton, brand photography Chattanooga, product photography Dalton GA, event photographer Northwest Georgia, photo studio Dalton GA, photographer Chattanooga TN">
+  <meta name="author" content="Noah Cady">
+  <link rel="canonical" href="https://noahcady.com/photography">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noahcady.com/photography">
+  <meta property="og:title" content="Photographer in Dalton, GA | Noah Cady">
+  <meta property="og:description" content="Professional photographer in Dalton, GA and Chattanooga area. Brand photography, headshots, product photography, and event coverage.">
+  <meta property="og:image" content="https://noahcady.com/photos/Noah%20Headshot%20for%20Site.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Noah Cady">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Photographer in Dalton, GA | Noah Cady">
+  <meta name="twitter:description" content="Professional photographer in Dalton, GA and Chattanooga area. Brand photography, headshots, product photography, and event coverage.">
+  <meta name="twitter:image" content="https://noahcady.com/photos/Noah%20Headshot%20for%20Site.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('theme');
+      if (!theme) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+  <%- include('partials/nav', { page: 'photography' }) %>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <p class="section-label">Services</p>
+      <h1 class="page-title">Photography</h1>
+      <p class="page-subtitle">Professional photography services for brands, businesses, and individuals in Dalton, GA and the greater Chattanooga area.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE DETAIL -->
+  <section class="service-detail">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content reveal">
+          <h2>Photographer in Dalton, GA</h2>
+          <p>I'm Noah Cady, a professional photographer based in Dalton, Georgia. With a background in cinematography and visual storytelling, I bring a cinematic quality to every photo session. I work with businesses, brands, and individuals across Northwest Georgia and the Chattanooga, Tennessee area to create compelling images that elevate your brand and tell your story.</p>
+
+          <h3>Photography Services I Offer</h3>
+          <ul class="service-list">
+            <li><strong>Brand & Lifestyle Photography</strong> — Images that capture the personality and culture of your brand for use across marketing materials and social media</li>
+            <li><strong>Professional Headshots</strong> — Polished, high-quality headshots for business professionals, teams, and actors</li>
+            <li><strong>Product Photography</strong> — Clean, detailed product shots for e-commerce, catalogs, and advertising</li>
+            <li><strong>Event Photography</strong> — Corporate events, conferences, grand openings, and community gatherings documented professionally</li>
+            <li><strong>Behind-the-Scenes Photography</strong> — On-set and in-studio documentation that gives your audience a look at the process</li>
+          </ul>
+
+          <h3>Serving Dalton, Chattanooga & Surrounding Areas</h3>
+          <p>My photography services cover Dalton, Chattanooga, Ringgold, Calhoun, Fort Oglethorpe, Chickamauga, Cleveland, and the surrounding Northwest Georgia and Southeast Tennessee communities. Whether you need on-location shoots or studio-style setups, I'll work with you to find the right approach for your project.</p>
+
+          <h3>A Cinematic Approach to Photography</h3>
+          <p>What sets my photography apart is my background as a filmmaker and colorist. Every image I deliver is carefully composed, lit with intention, and color graded to match your brand's visual identity. You get more than snapshots — you get professional imagery that looks and feels like it belongs in a campaign.</p>
+
+          <a href="/#contact" class="btn btn-primary">Book a Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <script src="/js/main.js?v=5"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Photography Services — Noah Cady",
+    "description": "Professional photographer in Dalton, GA. Brand photography, headshots, product photography, and event photography for the Dalton and Chattanooga area.",
+    "provider": {
+      "@type": "Person",
+      "name": "Noah Cady",
+      "url": "https://noahcady.com",
+      "jobTitle": "Photographer & Filmmaker",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dalton",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Dalton, GA" },
+      { "@type": "City", "name": "Chattanooga, TN" },
+      { "@type": "City", "name": "Ringgold, GA" },
+      { "@type": "City", "name": "Calhoun, GA" },
+      { "@type": "City", "name": "Fort Oglethorpe, GA" }
+    ],
+    "serviceType": ["Photographer", "Photography", "Brand Photography", "Headshots", "Product Photography", "Event Photography"]
+  }
+  </script>
+
+</body>
+</html>

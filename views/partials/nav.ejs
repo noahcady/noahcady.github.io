@@ -5,7 +5,14 @@
     <li><a href="<%= typeof page !== 'undefined' && page !== 'home' ? '/' : '' %>#about">About</a></li>
     <li><a href="<%= typeof page !== 'undefined' && page !== 'home' ? '/' : '' %>#projects">Work</a></li>
     <li><a href="/color-grading">Color Grading</a></li>
-    <li><a href="<%= typeof page !== 'undefined' && page !== 'home' ? '/' : '' %>#services">Services</a></li>
+    <li class="nav-dropdown">
+      <a href="<%= typeof page !== 'undefined' && page !== 'home' ? '/' : '' %>#services">Services</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/videography">Videography</a></li>
+        <li><a href="/photography">Photography</a></li>
+        <li><a href="/social-media-content">Social Media Content</a></li>
+      </ul>
+    </li>
     <li><a href="<%= typeof page !== 'undefined' && page !== 'home' ? '/' : '' %>#contact">Contact</a></li>
   </ul>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
